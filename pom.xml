@@ -39,6 +39,44 @@
 	    <version>1.2.55</version>
 	</dependency>
 	
+	<!-- 
+		JFinal第三方扩展的jar，本项目目前使用其自动绑定Controller功能，该依赖需要配合com.google.guava使用
+		https://github.com/E7du/jfinal-ext3.git
+	 -->
+	<dependency>
+	    <groupId>com.jfinal</groupId>
+	    <artifactId>jfinal-ext3</artifactId>
+	    <version>4.0.3</version>
+	</dependency>
+
+	<dependency>
+	    <groupId>com.google.guava</groupId>
+	    <artifactId>guava</artifactId>
+	    <version>18.0</version>
+	</dependency>
+   
+   <!-- logback -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-api</artifactId>
+	    <version>1.7.25</version>
+	</dependency>
+	<dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-core</artifactId>
+	    <version>1.2.3</version>
+	</dependency>
+	<dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-classic</artifactId>
+	    <version>1.2.3</version>
+	</dependency>
+	<dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-access</artifactId>
+	    <version>1.2.3</version>
+	</dependency>
+	
   </dependencies>
 	
   <build>

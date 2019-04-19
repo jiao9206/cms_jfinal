@@ -6,12 +6,12 @@ import com.jfinal.config.Interceptors;
 import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
+import com.jfinal.ext.route.AutoBindRoutes;
 import com.jfinal.json.FastJsonFactory;
 import com.jfinal.plugin.cron4j.Cron4jPlugin;
 import com.jfinal.template.Engine;
 
 import Interceptor.LoginInterceptor;
-import common.AutoControllerRegist;
 import controller.HelloController;
 import corn.TimeTask;
 
@@ -31,9 +31,9 @@ public class Config extends JFinalConfig{
 	//配置访问路由
 	@Override
 	public void configRoute(Routes me) {
-		AutoControllerRegist.regist(me);
-		//视图渲染基础路径
-		me.setBaseViewPath("/views");
+		me.setBaseViewPath("/views/");
+//		me.add("/hello", HelloController.class);
+		me.add(new AutoBindRoutes());
 	}
 
 	@Override

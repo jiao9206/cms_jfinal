@@ -1,26 +1,22 @@
 package controller;
 
-import com.alibaba.fastjson.JSON;
 import com.jfinal.aop.Inject;
 import com.jfinal.core.Controller;
 import com.jfinal.core.NotAction;
-import com.jfinal.core.paragetter.Para;
+import com.jfinal.ext.route.ControllerBind;
 
 import bean.HelloBean;
-import common.ControllerBind;
 import service.HelloService;
 
-@ControllerBind(controllerKey = "/myhello")
+@ControllerBind(controllerKey = "/hello")
 public class HelloController extends Controller{
 
 	@Inject
 	private HelloService helloService;
 	
-	public void index(@Para("name") String name) {
-		System.out.println(name);
-		System.out.println(this.getPara("name"));
-		helloService.test();
-		render("hello.html");
+	public void index() {
+//		render("hello.html");
+		render("/views/hello/hello.html");
 	}
 	
 	public void save() {
