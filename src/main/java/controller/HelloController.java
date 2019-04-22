@@ -15,8 +15,7 @@ public class HelloController extends Controller{
 	private HelloService helloService;
 	
 	public void index() {
-//		render("hello.html");
-		render("/views/hello/hello.html");
+		render("hello.html");
 	}
 	
 	public void save() {

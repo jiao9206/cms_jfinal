@@ -31,9 +31,10 @@ public class Config extends JFinalConfig{
 	//配置访问路由
 	@Override
 	public void configRoute(Routes me) {
-		me.setBaseViewPath("/views/");
-//		me.add("/hello", HelloController.class);
-		me.add(new AutoBindRoutes());
+		//自动扫描注册Controller
+		Routes routes=new AutoBindRoutes();
+		routes.setBaseViewPath("/views");
+		me.add(routes);
 	}
 
 	@Override
