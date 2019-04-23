@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.jfinal.aop.Inject;
 import com.jfinal.core.Controller;
@@ -37,6 +38,7 @@ public class HelloController extends Controller{
 		try {
 			List<Record> list=Db.find("select * from tb_test");
 			System.out.println(list);
+			Db.save("tb_test", new Record().set("id", UUID.randomUUID().toString().replaceAll("-", "")).set("name", "潘").set("age", 21).set("address", "山东济南"));
 			renderText("SUCCESS!");
 		}catch(Exception e) {
 			e.printStackTrace();
