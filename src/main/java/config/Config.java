@@ -40,7 +40,7 @@ public class Config extends JFinalConfig{
 
 	@Override
 	public void configEngine(Engine me) {
-		
+		me.setDevMode(true);
 	}
 
 	/**
@@ -88,6 +88,6 @@ public class Config extends JFinalConfig{
 
 	@Override
 	public void configHandler(Handlers me) {
-		
+		me.add(new BasePathHandler("path"));
 	}
 }

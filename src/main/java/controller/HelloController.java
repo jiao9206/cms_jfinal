@@ -3,20 +3,25 @@ package controller;
 import java.util.List;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.jfinal.aop.Before;
 import com.jfinal.aop.Inject;
 import com.jfinal.core.Controller;
 import com.jfinal.core.NotAction;
-import com.jfinal.plugin.activerecord.tx.Tx;
 import com.jfinal.ext.route.ControllerBind;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
+import com.jfinal.plugin.activerecord.tx.Tx;
 
 import bean.HelloBean;
 import service.HelloService;
 
 @ControllerBind(controllerKey = "/hello")
 public class HelloController extends Controller{
+	
+	private static Logger log=LoggerFactory.getLogger(HelloController.class);
 
 	@Inject
 	private HelloService helloService;
@@ -39,6 +44,7 @@ public class HelloController extends Controller{
 	@Before({Tx.class})
 	public void testDB() {
 		try {
+			log.info("测试记录日志");
 			List<Record> list=Db.find("select * from tb_test");
 			System.out.println(list);
 			/**
